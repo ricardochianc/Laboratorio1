@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Farma Plus S.A.</title>
-    @Styles.Render("~/Content/css")
+
+@Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -21,7 +22,9 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Inicio", "Index", "Home", new {id = 1}, new {@style= "color:#000000;" })</li>
+                @*#fff;*@
+                <li>@Html.ActionLink("Inicio", "Index", "Home", new { id = 1 }, new { @style = "color:#000000;" })</li>
+                @*<li>@Html.ActionLink("Inicio", "Index", "Home", new { id = 1 }, new { @class ="my-class" })</li>*@
             </ul>
         </div>
     </div>
