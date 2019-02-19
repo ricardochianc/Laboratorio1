@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstructurasGenericas
+namespace Estructuras.Interface
 {
     interface ILinearDataStructure<T>
     {

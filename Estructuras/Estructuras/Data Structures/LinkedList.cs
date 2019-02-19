@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Estructuras.Interface;
+using Estructuras.Node;
 
-namespace EstructurasGenericas
+namespace Estructuras.Data_Structures
 {
-    public class CustomLinkedList<T> : ILinearDataStructure<T>, IEnumerable<T> where T:IComparable
+    public class LinkedList <T>:ILinearDataStructure<T>, IEnumerable<T> where T : IComparable
     {
         private Nodo<T> First { get; set; }
         public int Count { get; set; }
         public bool IsEmpty { get; set; }
 
-        public CustomLinkedList()
+        public LinkedList()
         {
             First = null;
             Count = 0;
@@ -25,7 +27,7 @@ namespace EstructurasGenericas
             if (IsEmpty)
             {
                 Count = 1;
-                First =  new Nodo<T>(value);
+                First = new Nodo<T>(value);
                 IsEmpty = false;
             }
             else

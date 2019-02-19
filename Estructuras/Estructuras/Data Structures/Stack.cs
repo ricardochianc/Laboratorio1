@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Estructuras.Interface;
+using Estructuras.Node;
 
-namespace EstructurasGenericas.Data_Structures
+namespace Estructuras.Data_Structures
 {
-    public class Stack<T> : ILinearDataStructure<T>, IEnumerable<T> where T : IComparable
+    class Stack<T> : ILinearDataStructure<T>, IEnumerable<T> where T : IComparable
     {
         //Top o cima, primer elemento en la pila
         private Nodo<T> Top { get; set; }
@@ -33,7 +35,7 @@ namespace EstructurasGenericas.Data_Structures
 
         public void Push(T value)
         {
-          Add(value);   
+            Add(value);
         }
 
         public T Delete()

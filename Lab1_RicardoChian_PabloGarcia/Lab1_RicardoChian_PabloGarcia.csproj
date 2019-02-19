@@ -181,9 +181,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EstructurasGenericas\EstructurasGenericas\EstructurasGenericas.csproj">
-      <Project>{1a2ad4a0-c18c-407d-9c07-d740476817d3}</Project>
-      <Name>EstructurasGenericas</Name>
+    <ProjectReference Include="..\Estructuras\Estructuras\Estructuras.csproj">
+      <Project>{e28e4f0c-9166-41fc-911b-0d8ae91edc40}</Project>
+      <Name>Estructuras</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
