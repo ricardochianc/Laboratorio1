@@ -4605,7 +4605,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #000000;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #000000;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -4638,6 +4638,23 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-form {
   border-color: #101010;
 }
+
+.my-class {
+    color: black;
+}
+
+.my-class:link {
+    color:black;
+}
+
+.my-class:focus {
+    color:black;
+}
+
+.my-class:hover {
+    color: #ffffff;
+}
+
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
