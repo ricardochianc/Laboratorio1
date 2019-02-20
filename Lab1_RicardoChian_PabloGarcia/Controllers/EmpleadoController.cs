@@ -15,12 +15,6 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             return View(Data.Instance.ListaEmpleados);
         }
 
-        // GET: Empleado/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: Empleado/Create
         public ActionResult Create()
         {
@@ -34,50 +28,6 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Empleado/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Empleado/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Empleado/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Empleado/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
             }
