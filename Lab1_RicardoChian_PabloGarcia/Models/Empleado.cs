@@ -18,7 +18,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
 
         [Display(Name = "Tiempo trabajado")]
         [DataType(DataType.Time)]
-        public DateTime HorasTrabajadas { get; set; }
+        public TimeSpan HorasTrabajadas { get; set; }
 
         [Display(Name = "Hora de entrada")]
         [DataType(DataType.Time)]
@@ -42,7 +42,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
         {
             Nombre = nombre;
             CodigoEmpleado = codigo;
-            HorasTrabajadas = DateTime.Parse("0");
+            HorasTrabajadas = TimeSpan.Parse("0:00");
             Disponible = false;
         }
 
@@ -57,6 +57,26 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
         {
             return empleado1.CompareTo(empleado2);
         };
+
+        public void AsignarCitas()
+        {
+            var Num = new Random();
+            CantidaCitas = Num.Next(1, 5);
+        }
+
+        public void CalcularHoras()
+        {
+            var trabajadas = new TimeSpan(0,(CantidaCitas*90),0);
+
+            HorasTrabajadas = trabajadas;
+            HorasTrabajadas.Add(new TimeSpan(0, 120, 0));
+
+            var numHoras = HorasTrabajadas.Hours;
+            var numMinutos = HorasTrabajadas.Minutes;
+
+            HoraDeSalida = HoraDeEntrada.Add(new TimeSpan(numHoras, numMinutos, 0));
+
+        }
 
     //    public Predicate<Empleado> BuscadorCodigo = (Empleado emp) =>
     //    {
