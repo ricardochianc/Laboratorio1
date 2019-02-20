@@ -12,70 +12,78 @@
 </p>
 
 <p>
-    @Html.ActionLink("Registro automático", "Create")
+    @Html.ActionLink("Registro automático (Archivo *.csv)", "Create")
 </p>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoEmpleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasTrabajadas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraDeEntrada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraDeSalida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Disponible)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sueldo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidaCitas)
-        </th>
-        <th></th>
-    </tr>
+    <thead style="background-color:cornflowerblue">
+        <tr style="color: black">
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasTrabajadas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraDeEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraDeSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sueldo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidaCitas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoEmpleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorasTrabajadas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraDeEntrada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraDeSalida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Disponible)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sueldo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidaCitas)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasTrabajadas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraDeEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraDeSalida)
+            </td>
+            <td>
+                @if (item.Disponible)
+                {
+                    Html.DisplayFor(modelItem => "Si");
+                }
+                else
+                {
+                    Html.DisplayFor(modelItem => "No");
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sueldo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidaCitas)
+            </td>
+        </tr>
+    }
 </table>
+@if (!Model.Any())
+{
+    <h6 style="color:darkred">No hay empleados registrados</h6>
+}
