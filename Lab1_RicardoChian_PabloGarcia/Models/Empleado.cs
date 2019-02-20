@@ -44,6 +44,9 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
             CodigoEmpleado = codigo;
             HorasTrabajadas = TimeSpan.Parse("0:00");
             Disponible = false;
+
+            HoraDeEntrada = DateTime.Parse("00:00");
+            HoraDeSalida = DateTime.Parse("00:00");
         }
 
         public int CompareTo(object obj)

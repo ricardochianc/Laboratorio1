@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lab1_RicardoChian_PabloGarcia.Helpers;
+using Lab1_RicardoChian_PabloGarcia.Models;
 
 namespace Lab1_RicardoChian_PabloGarcia.Controllers
 {
@@ -28,7 +29,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                Data.Instance.ListaEmpleados.Add(new Empleado(collection["Nombre"],collection["CodigoEmpleado"]));
                 return RedirectToAction("Index");
             }
             catch

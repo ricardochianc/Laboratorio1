@@ -21,21 +21,27 @@
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.CodigoEmpleado)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HorasTrabajadas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraDeEntrada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraDeSalida)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Disponible)
             </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.HoraDeEntrada)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.HoraDeSalida)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.HorasTrabajadas)
+            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Sueldo)
             </th>
@@ -48,39 +54,54 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr style="text-align: center">
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoEmpleado)
+        </td>
+
+
+        @if (item.HoraDeEntrada.Hour != 0)
+        {
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.Disponible)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodigoEmpleado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasTrabajadas)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.HoraDeEntrada)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.HoraDeSalida)
             </td>
+
             <td>
-                @if (item.Disponible)
-                {
-                    Html.DisplayFor(modelItem => "Si");
-                }
-                else
-                {
-                    Html.DisplayFor(modelItem => "No");
-                }
+                @Html.DisplayFor(modelItem => item.HorasTrabajadas)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Sueldo)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.CantidaCitas)
             </td>
-        </tr>
+        }
+        else
+        {
+            {
+                <td>N/A</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Q. -</td>
+                <td>-</td>
+            }
+        }
+    </tr>
     }
 </table>
 @if (!Model.Any())
