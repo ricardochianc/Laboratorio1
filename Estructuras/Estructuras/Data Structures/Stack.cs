@@ -9,7 +9,7 @@ using Estructuras.Node;
 
 namespace Estructuras.Data_Structures
 {
-    class Stack<T> : ILinearDataStructure<T>, IEnumerable<T> where T : IComparable
+    public class Stack<T> : ILinearDataStructure<T>, IEnumerable<T> where T : IComparable
     {
         //Top o cima, primer elemento en la pila
         private Nodo<T> Top { get; set; }
