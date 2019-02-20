@@ -10,19 +10,21 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
 {
     public class EmpleadoController : Controller
     {
-        // GET: Empleado
+        //Operaciones de empleado ------------------------------------------------------------------------------------------------
+
+
         public ActionResult Index()
         {
             return View(Data.Instance.ListaEmpleados);
         }
 
-        // GET: Empleado/Create
+        
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Empleado/Create
+        
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -36,6 +38,13 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             {
                 return View();
             }
+        }
+
+        //Operaciones de empleados en parqueo, así como el control de entrada y salida de los empleados------------------------------------------------------------------
+
+        public ActionResult Parqueo()
+        {
+            return View(Data.Instance.PilaEmpleados);
         }
     }
 }

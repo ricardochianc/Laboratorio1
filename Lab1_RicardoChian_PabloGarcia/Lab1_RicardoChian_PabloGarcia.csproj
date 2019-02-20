@@ -167,6 +167,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
     <Content Include="Views\Empleado\Create.cshtml" />
+    <Content Include="Views\Empleado\Parqueo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

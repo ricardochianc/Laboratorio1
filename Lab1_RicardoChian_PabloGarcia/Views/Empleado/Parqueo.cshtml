@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Lab1_RicardoChian_PabloGarcia.Models.Empleado>
+
+@{
+    ViewBag.Title = "Parqueo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Parqueo</h2>
+
+<p>
+    @Html.ActionLink("Regristrar entrada", "Create")
+</p>
+
+<table class="table">
+    <thead style="background-color: cornflowerblue">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoEmpleado)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.HoraDeEntrada)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CantidaCitas)
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoEmpleado)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraDeEntrada)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidaCitas)
+            </td>
+            
+        </tr>
+    }
+</table>
