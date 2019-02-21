@@ -61,12 +61,21 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
 
                 Predicate<Empleado> BuscadorEmpleado = (Empleado emp) => { return emp.CodigoEmpleado == codigo; };
 
+                foreach (var emp in Data.Instance.ListaEmpleados)
+                {
+                    if (emp.CodigoEmpleado == codigo)
+                    {
+                        emp.AsignarCitas();
+                        emp.CalcularHoras(Data.Instance.ListaEmpleados.Count);
+                        emp.Disponible = true;
+                    }
+                }
+
                 var Empleado = Data.Instance.ListaEmpleados.Find(BuscadorEmpleado);
+
 
                 if (Empleado != null)
                 {
-                    Empleado.AsignarCitas();
-                    Empleado.CalcularHoras();
                     Data.Instance.PilaEmpleados.Add(Empleado);
                     return RedirectToAction("Parqueo");
                 }

@@ -67,8 +67,10 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
             CantidaCitas = Num.Next(1, 5);
         }
 
-        public void CalcularHoras()
+        public void CalcularHoras(int count)
         {
+            HoraDeEntrada = HoraDeEntrada.Add(new TimeSpan((count + 1), 0, 0));
+
             var trabajadas = new TimeSpan(0,(CantidaCitas*90),0);
 
             HorasTrabajadas = trabajadas;
@@ -80,10 +82,5 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
             HoraDeSalida = HoraDeEntrada.Add(new TimeSpan(numHoras, numMinutos, 0));
 
         }
-
-    //    public Predicate<Empleado> BuscadorCodigo = (Empleado emp) =>
-    //    {
-    //        return emp.CodigoEmpleado == name;
-    //    };
     }
 }

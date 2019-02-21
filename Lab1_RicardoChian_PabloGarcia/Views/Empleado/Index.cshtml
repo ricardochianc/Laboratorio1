@@ -81,7 +81,7 @@
                 <td>-</td>
             }
         }
-        @if (item.Disponible != true)
+        @if (item.Disponible == false && item.HorasTrabajadas.Hours != 0)
         {
             <td>
                 @Html.DisplayFor(modelItem => item.HoraDeSalida)
