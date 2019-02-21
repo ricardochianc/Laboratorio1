@@ -23,7 +23,6 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
         {
             return View();
         }
-
         
         [HttpPost]
         public ActionResult Create(FormCollection collection)
