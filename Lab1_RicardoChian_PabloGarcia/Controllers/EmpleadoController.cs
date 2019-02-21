@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -37,6 +38,45 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult CrearPorArchivo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CrearPorArchivo(HttpPostedFileBase postedFile)
+        {
+            var FilePath = string.Empty;
+
+            if (postedFile != null)
+            {
+                var path = Server.MapPath("~/CargaCSV/");
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                FilePath = path + Path.GetFileName(postedFile.FileName);
+                var Extension = Path.GetExtension(postedFile.FileName);
+                postedFile.SaveAs(FilePath);
+
+                var CsvData = System.IO.File.ReadAllText(FilePath);
+                
+
+                foreach (var fila in CsvData.Split('\n'))
+                {
+                    if (!string.IsNullOrEmpty(fila))
+                    {
+                        var filaSecundaria = fila.Split('\r');
+                        var s = fila;
+                        s = filaSecundaria[0];
+                        Data.Instance.ListaEmpleados.Add(new Empleado(s.Split(',')[0], s.Split(',')[1]));
+                    }
+                }
+            }
+            return RedirectToAction("Index");
         }
 
         //Operaciones de empleados en parqueo, así como el control de entrada y salida de los empleados------------------------------------------------------------------

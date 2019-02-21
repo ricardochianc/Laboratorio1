@@ -1,0 +1,14 @@
+﻿@using Lab1_RicardoChian_PabloGarcia.Controllers
+
+@{
+    ViewBag.Title = "Crear empleado *.CSV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Crear empleado por medio de archivo *.csv</h2>
+
+@using (Html.BeginForm("CrearPorArchivo", "Empleado", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="postedFile" />
+    <button type="submit" value="Import">Subir Archivo</button>
+}
