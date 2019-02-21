@@ -63,7 +63,7 @@
         </td>
 
 
-        @if (item.HoraDeEntrada.Hour != 0)
+        @if (item.HoraDeEntrada.Hour != 6)
         {
             <td>
                 @Html.DisplayFor(modelItem => item.Disponible)
@@ -103,16 +103,9 @@
         }
 
 
-        @if (item.Disponible)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.CantidaCitas)
-            </td>
-        }
-        else
-        {
-            <td>-</td>
-        }
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidaCitas)
+        </td>
     </tr>
     }
 </table>

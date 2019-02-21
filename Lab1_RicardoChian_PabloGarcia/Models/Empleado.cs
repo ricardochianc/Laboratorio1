@@ -45,7 +45,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
             HorasTrabajadas = TimeSpan.Parse("0:00");
             Disponible = false;
 
-            HoraDeEntrada = DateTime.Parse("00:00");
+            HoraDeEntrada = DateTime.Parse("06:00");
             HoraDeSalida = DateTime.Parse("00:00");
         }
 
