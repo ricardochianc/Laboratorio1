@@ -170,6 +170,8 @@
     <Content Include="Views\Empleado\Parqueo.cshtml" />
     <Content Include="Views\Empleado\RegistrarEntrada.cshtml" />
     <Content Include="Views\Empleado\CrearPorArchivo.cshtml" />
+    <Content Include="Views\Empleado\Busquedas.cshtml" />
+    <Content Include="Views\Empleado\Busqueda_Nombre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

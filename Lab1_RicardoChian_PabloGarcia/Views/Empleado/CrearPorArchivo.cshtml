@@ -9,6 +9,9 @@
 
 @using (Html.BeginForm("CrearPorArchivo", "Empleado", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="postedFile" />
-    <button type="submit" value="Import">Subir Archivo</button>
+    <label for="exampleInputFile">Entrada de archivo</label>
+    <input type="file" class="form-control-file" name="postedFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">Tipo de archivo *.csv, debe de contener nombre y código del empleado.</small>
+
+    <button type="submit" class="btn btn-primary">Subir</button>
 }

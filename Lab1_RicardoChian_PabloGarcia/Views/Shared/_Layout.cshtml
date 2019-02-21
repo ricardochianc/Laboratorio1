@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Lab1_RicardoChian_PabloGarcia.Helpers
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -24,7 +25,11 @@
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Empleados", "Index", "Empleado", new { id = 1 }, new { @class = "my-class" })</li>
                 <li>@Html.ActionLink("Control de parqueo", "Parqueo", "Empleado", new { id = 1 }, new { @class = "my-class" })</li>
-                <li>@*Html.ActionLink("Búsqueda de Empleados", "Buscador", "Empleado", new { id = 1 }, new { @class = "my-class" })*@</li>
+
+                @if (Data.Instance.ListaEmpleados.Count != 0)
+                {
+                    <li>@Html.ActionLink("Búsqueda de Empleados", "Busquedas", "Empleado", new { id = 1 }, new { @class = "my-class" })</li>
+                }
             </ul>
         </div>
     </div>

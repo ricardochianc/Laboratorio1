@@ -59,7 +59,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
                     Directory.CreateDirectory(path);
                 }
                 FilePath = path + Path.GetFileName(postedFile.FileName);
-                var Extension = Path.GetExtension(postedFile.FileName);
+                
                 postedFile.SaveAs(FilePath);
 
                 var CsvData = System.IO.File.ReadAllText(FilePath);
@@ -75,6 +75,8 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
                         Data.Instance.ListaEmpleados.Add(new Empleado(s.Split(',')[0], s.Split(',')[1]));
                     }
                 }
+                System.IO.File.Delete(FilePath);
+                Directory.Delete(path);
             }
             return RedirectToAction("Index");
         }
@@ -146,6 +148,36 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             return RedirectToAction("Parqueo");
         }
 
+        //Búsquedas
+        public ActionResult Busquedas()
+        {
+            if (TempData.Count != 0)
+            {
+                ViewBag.Nombre = TempData["nombre"].ToString();
+                ViewBag.Codigo = TempData["codigo"].ToString();
+                //TempData["dsponible"] = Empleado.Disponible;
+                ViewBag.HoraEntrada = TempData["HoraEntrada"];
+                ViewBag.HoraSalida = TempData["HoraSalida"].ToString();
+                ViewBag.HorasTrabajadas = TempData["HorasTrabajadas"];
+                ViewBag.Sueldo = TempData["sueldo"].ToString();
+                ViewBag.Citas = TempData["citas"].ToString();
+                return View();
+            }
+            //else
+            //{
+            //    ViewBag.Nombre = TempData["nombre"].ToString();
+            //    ViewBag.Codigo = TempData["codigo"].ToString();
+            //    //TempData["dsponible"] = Empleado.Disponible;
+            //    ViewBag.HoraEntrada = TempData["HoraEntrada"].ToString();
+            //    ViewBag.HoraSalida = TempData["HoraSalida"].ToString();
+            //    ViewBag.HorasTrabajadas = TempData["HorasTrabajadas"].ToString();
+            //    ViewBag.Sueldo = TempData["sueldo"].ToString();
+            //    ViewBag.Citas = TempData["citas"].ToString();
+            //}
+            return View();
+        }
+
+
         public ActionResult Busqueda_Nombre()
         {
             return View();
@@ -160,7 +192,54 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
 
             var Empleado = Data.Instance.ListaEmpleados.Find(BuscadorEmpleado);
 
-            return RedirectToAction("Busqueda_Nombre");
+            if (Empleado != null)
+            {
+                TempData["nombre"] = Empleado.Nombre;
+                TempData["codigo"] = Empleado.CodigoEmpleado;
+                //TempData["disponible"] = Empleado.Disponible;
+                TempData["HoraEntrada"] = Empleado.HoraDeEntrada.Hour;
+                TempData["HoraSalida"] = Empleado.HoraDeSalida.Hour;
+                TempData["HorasTrabajadas"] = Empleado.HorasTrabajadas.Hours;
+                TempData["sueldo"] = Empleado.Sueldo;
+                TempData["citas"] = Empleado.CantidaCitas;
+                return RedirectToAction("Busquedas");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Busqueda_Codigo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Busqueda_Codigo(FormCollection collection)
+        {
+            var codigo = collection["CodigoEmpleado"];
+
+            Predicate<Empleado> BuscadorEmpleado = (Empleado emp) => { return emp.CodigoEmpleado == codigo; };
+
+            var Empleado = Data.Instance.ListaEmpleados.Find(BuscadorEmpleado);
+
+            if (Empleado != null)
+            {
+                TempData["nombre"] = Empleado.Nombre;
+                TempData["codigo"] = Empleado.CodigoEmpleado;
+                //TempData["disponible"] = Empleado.Disponible;
+                TempData["HoraEntrada"] = Empleado.HoraDeEntrada.Hour;
+                TempData["HoraSalida"] = Empleado.HoraDeSalida.Hour;
+                TempData["HorasTrabajadas"] = Empleado.HorasTrabajadas.Hours;
+                TempData["sueldo"] = Empleado.Sueldo;
+                TempData["citas"] = Empleado.CantidaCitas;
+                return RedirectToAction("Busquedas");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

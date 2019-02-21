@@ -1,0 +1,88 @@
+﻿
+
+@{
+    ViewBag.Title = "Busquedas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tipo de búsqueda</h2>
+
+<hr />
+@Html.ActionLink("Nombre", "Busqueda_Nombre")
+<hr />
+@Html.ActionLink("Codigo", "Busqueda_Nombre")
+<hr />
+@Html.ActionLink("Horas trabajadas", "Busquedas")
+<hr />
+
+<table class="table">
+    <thead style="background-color:cornflowerblue">
+        <tr>
+            <th>Nombre</th>
+
+            <th>Código empleado</th>
+
+            <th>Hora de entrada</th>
+
+            <th>Hora de salida/retorno</th>
+
+            <th>Horas trabajadas</th>
+
+            <th>Sueldo</th>
+
+            <th>Cantidad de citas</th>
+        </tr>
+    </thead>
+
+
+    <tr style="text-align: center">
+        <td>
+            @ViewBag.Nombre
+        </td>
+
+        <td>
+            @ViewBag.Codigo
+        </td>
+
+
+        @if (@ViewBag.HoraEntrada != 6)
+        {
+            <td>
+                @ViewBag.HoraEntrada:00
+            </td>
+
+        }
+        else
+        {
+            {
+                <td>N/A</td>
+            }
+        }
+        @if (@ViewBag.HorasTrabajadas != 0)
+        {
+            <td>
+                @ViewBag.HoraSalida:00
+            </td>
+
+            <td>
+                @ViewBag.HorasTrabajadas:00
+            </td>
+
+            <td>
+                Q.@ViewBag.Sueldo
+            </td>
+        }
+        else
+        {
+            <td>-</td>
+            <td>-</td>
+            <td>Q. -</td>
+        }
+
+        <td>
+            @ViewBag.Citas
+        </td>
+    </tr>
+
+</table>
+
