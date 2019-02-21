@@ -42,6 +42,7 @@ namespace Estructuras.Data_Structures
         {
             var aux = Top.Value;
             Top = Top.Next;
+            Count--;
             return aux;
         }
 

@@ -94,16 +94,23 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Sueldo)
             </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.CantidaCitas)
-            </td>
         }
         else
         {
             <td>-</td>
             <td>-</td>
             <td>Q. -</td>
+        }
+
+
+        @if (item.Disponible)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidaCitas)
+            </td>
+        }
+        else
+        {
             <td>-</td>
         }
     </tr>
