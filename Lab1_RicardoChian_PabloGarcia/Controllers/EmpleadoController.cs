@@ -106,5 +106,22 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             
             return RedirectToAction("Parqueo");
         }
+
+        public ActionResult Busqueda_Nombre()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Busqueda_Nombre(FormCollection collection)
+        {
+            var nombre = collection["Nombre"];
+
+            Predicate<Empleado> BuscadorEmpleado = (Empleado emp) => {return emp.Nombre == nombre};
+
+            var Empleado = Data.Instance.ListaEmpleados.Find(BuscadorEmpleado);
+
+            return RedirectToAction("Busqueda_Nombre");
+        }
     }
 }
