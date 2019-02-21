@@ -81,6 +81,10 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
 
             HoraDeSalida = HoraDeEntrada.Add(new TimeSpan(numHoras, numMinutos, 0));
 
+            var HoraT = HorasTrabajadas.Hours;
+            HoraT += HorasTrabajadas.Minutes/60;
+
+            Sueldo = (HoraT*38);
         }
     }
 }

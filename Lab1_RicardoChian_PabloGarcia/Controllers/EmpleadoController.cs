@@ -66,7 +66,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
                     if (emp.CodigoEmpleado == codigo)
                     {
                         emp.AsignarCitas();
-                        emp.CalcularHoras(Data.Instance.ListaEmpleados.Count);
+                        emp.CalcularHoras(Data.Instance.PilaEmpleados.Count);
                         emp.Disponible = true;
                     }
                 }
@@ -88,6 +88,23 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
             {
                 return View();
             }
+        }
+
+
+        public ActionResult SimularSalida()
+        {
+            var codigoAux = Data.Instance.PilaEmpleados.Get().CodigoEmpleado;
+            foreach (var emp in Data.Instance.ListaEmpleados)
+            {
+                if (emp.CodigoEmpleado == codigoAux)
+                {
+                    emp.Disponible = false;
+                }
+            }
+
+            Data.Instance.PilaEmpleados.Pop();
+            
+            return RedirectToAction("Parqueo");
         }
     }
 }

@@ -50,9 +50,9 @@ namespace Estructuras.Data_Structures
             return Delete();
         }
 
-        public T Get(int posicion)
+        public T Get()
         {
-            throw new NotImplementedException();
+            return Top.Value;
         }
 
         public IEnumerator<T> GetEnumerator()

@@ -10,6 +10,6 @@ namespace Estructuras.Interface
     {
         void Add(T value);
         T Delete();
-        T Get(int posicion);
+        T Get();
     }
 }

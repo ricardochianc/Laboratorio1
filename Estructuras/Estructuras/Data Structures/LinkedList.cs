@@ -50,7 +50,7 @@ namespace Estructuras.Data_Structures
             throw new NotImplementedException();
         }
 
-        public T Get(int posicion)
+        public T Get()
         {
             throw new NotImplementedException();
         }

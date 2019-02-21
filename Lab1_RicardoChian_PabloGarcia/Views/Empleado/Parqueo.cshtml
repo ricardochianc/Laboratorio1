@@ -64,3 +64,11 @@ else
         </tr>
     }
 </table>
+
+@if (Data.Instance.PilaEmpleados.Count != 0)
+{
+    <hr />
+    <p>
+        @Html.ActionLink("Simular salida a trabajar y retorno", "SimularSalida")
+    </p>
+}
