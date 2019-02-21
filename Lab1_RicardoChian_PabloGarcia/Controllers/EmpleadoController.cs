@@ -65,6 +65,8 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
 
                 if (Empleado != null)
                 {
+                    Empleado.AsignarCitas();
+                    Empleado.CalcularHoras();
                     Data.Instance.PilaEmpleados.Add(Empleado);
                     return RedirectToAction("Parqueo");
                 }

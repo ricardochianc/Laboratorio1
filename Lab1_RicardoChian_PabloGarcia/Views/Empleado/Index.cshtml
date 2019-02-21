@@ -73,6 +73,16 @@
                 @Html.DisplayFor(modelItem => item.HoraDeEntrada)
             </td>
 
+        }
+        else
+        {
+            {
+                <td>N/A</td>
+                <td>-</td>
+            }
+        }
+        @if (item.Disponible != true)
+        {
             <td>
                 @Html.DisplayFor(modelItem => item.HoraDeSalida)
             </td>
@@ -91,14 +101,10 @@
         }
         else
         {
-            {
-                <td>N/A</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Q. -</td>
-                <td>-</td>
-            }
+            <td>-</td>
+            <td>-</td>
+            <td>Q. -</td>
+            <td>-</td>
         }
     </tr>
     }

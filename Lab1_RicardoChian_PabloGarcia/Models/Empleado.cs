@@ -72,7 +72,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Models
             var trabajadas = new TimeSpan(0,(CantidaCitas*90),0);
 
             HorasTrabajadas = trabajadas;
-            HorasTrabajadas.Add(new TimeSpan(0, 120, 0));
+            HorasTrabajadas += new TimeSpan(0,120,0);
 
             var numHoras = HorasTrabajadas.Hours;
             var numMinutos = HorasTrabajadas.Minutes;
