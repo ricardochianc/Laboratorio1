@@ -116,7 +116,7 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
         {
             var nombre = collection["Nombre"];
 
-            Predicate<Empleado> BuscadorEmpleado = (Empleado emp) => {return emp.Nombre == nombre};
+            Predicate<Empleado> BuscadorEmpleado = (Empleado emp) => { return emp.Nombre == nombre;};
 
             var Empleado = Data.Instance.ListaEmpleados.Find(BuscadorEmpleado);
 
