@@ -46,5 +46,37 @@ namespace Lab1_RicardoChian_PabloGarcia.Controllers
         {
             return View(Data.Instance.PilaEmpleados);
         }
+
+        public ActionResult RegistrarEntrada()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegistrarEntrada(FormCollection collection)
+        {
+            try
+            {
+                var codigo = collection["CodigoEmpleado"];
+
+                Predicate<Empleado> BuscadorEmpleado = (Empleado emp) => { return emp.CodigoEmpleado == codigo; };
+
+                var Empleado = Data.Instance.ListaEmpleados.Find(BuscadorEmpleado);
+
+                if (Empleado != null)
+                {
+                    Data.Instance.PilaEmpleados.Add(Empleado);
+                    return RedirectToAction("Parqueo");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

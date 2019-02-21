@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Lab1_RicardoChian_PabloGarcia.Models.Empleado>
+﻿@using Lab1_RicardoChian_PabloGarcia.Helpers
+@model IEnumerable<Lab1_RicardoChian_PabloGarcia.Models.Empleado>
+
 
 @{
     ViewBag.Title = "Parqueo";
@@ -7,9 +9,17 @@
 
 <h2>Parqueo</h2>
 
-<p>
-    @Html.ActionLink("Regristrar entrada", "Create")
-</p>
+@if (Data.Instance.ListaEmpleados.Count != 0)
+{
+    <p>
+        @Html.ActionLink("Regristrar entrada", "RegistrarEntrada")
+    </p>
+}
+else
+{
+    <h6 style="color:darkred">No hay empleados registrados, no se puede registrar una entrada en el parqueo.</h6>
+    <h6 style="color:darkred">Registre primero empleados para poder crear un registro de ingreso</h6>
+}
 
 <table class="table">
     <thead style="background-color: cornflowerblue">
@@ -21,7 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.CodigoEmpleado)
             </th>
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.HoraDeEntrada)
             </th>
@@ -46,11 +56,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.HoraDeEntrada)
             </td>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.CantidaCitas)
             </td>
-            
+
         </tr>
     }
 </table>
